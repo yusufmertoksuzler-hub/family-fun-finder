@@ -2,33 +2,34 @@ import { useState } from "react";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/seo/SEOHead";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Users, TrendingUp, Calendar, DollarSign, Shield, Upload } from "lucide-react";
+import { CheckCircle, Users, TrendingUp, Calendar, DollarSign, Shield, Upload, X } from "lucide-react";
+import { toast } from "sonner";
 
 const benefits = [
   {
     icon: Users,
-    title: "Reach Thousands of Families",
-    description: "Connect with parents actively searching for activities in your area.",
+    title: "Binlerce Aileye Ulaşın",
+    description: "Bölgenizde aktif olarak aktivite arayan ebeveynlerle bağlantı kurun.",
   },
   {
     icon: Calendar,
-    title: "Easy Scheduling",
-    description: "Manage bookings, waitlists, and schedules all in one place.",
+    title: "Kolay Planlama",
+    description: "Rezervasyonları, bekleme listelerini ve programları tek bir yerden yönetin.",
   },
   {
     icon: DollarSign,
-    title: "Secure Payments",
-    description: "Get paid on time with our secure payment processing.",
+    title: "Güvenli Ödemeler",
+    description: "Güvenli ödeme işleme sistemimizle zamanında ödeme alın.",
   },
   {
     icon: TrendingUp,
-    title: "Grow Your Business",
-    description: "Access marketing tools and insights to expand your reach.",
+    title: "İşinizi Büyütün",
+    description: "Erişiminizi genişletmek için pazarlama araçlarına ve analitiklere erişin.",
   },
   {
     icon: Shield,
-    title: "Verified Badge",
-    description: "Build trust with our verification and review system.",
+    title: "Onaylı Rozet",
+    description: "Doğrulama ve değerlendirme sistemimizle güven oluşturun.",
   },
 ];
 
@@ -44,16 +45,17 @@ const Providers = () => {
     categories: [] as string[],
   });
   const [submitted, setSubmitted] = useState(false);
+  const [uploadedFiles, setUploadedFiles] = useState<string[]>([]);
 
   const categories = [
-    "Sports",
-    "Arts & Crafts",
-    "Music",
+    "Spor",
+    "Sanat & El İşi",
+    "Müzik",
     "STEM",
-    "Dance",
-    "Outdoor",
-    "Language",
-    "Other",
+    "Dans",
+    "Açık Hava",
+    "Dil",
+    "Diğer",
   ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -70,18 +72,38 @@ const Providers = () => {
     }));
   };
 
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (files) {
+      const newFiles = Array.from(files).map(f => f.name);
+      setUploadedFiles([...uploadedFiles, ...newFiles]);
+      toast.success(`${newFiles.length} dosya yüklendi!`);
+    }
+  };
+
+  const removeFile = (fileName: string) => {
+    setUploadedFiles(uploadedFiles.filter(f => f !== fileName));
+    toast.info("Dosya kaldırıldı");
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In production, this would send to an API
+    
+    if (formData.categories.length === 0) {
+      toast.error("Lütfen en az bir kategori seçin");
+      return;
+    }
+
     console.log("Form submitted:", formData);
+    toast.success("Başvurunuz başarıyla gönderildi!");
     setSubmitted(true);
   };
 
   return (
     <Layout>
       <SEOHead
-        title="Become a Provider - List Your Activity"
-        description="Join KidVenture as an activity provider. Reach thousands of local families, manage bookings easily, and grow your business with our platform."
+        title="Sağlayıcı Olun - Aktivitenizi Listeleyin"
+        description="ÇocukMacera'ya aktivite sağlayıcısı olarak katılın. Binlerce yerel aileye ulaşın, rezervasyonları kolayca yönetin ve işinizi platformumuzla büyütün."
         canonical="/providers"
       />
 
@@ -91,40 +113,41 @@ const Providers = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="font-display text-4xl sm:text-5xl font-bold text-foreground mb-6 leading-tight">
-                Grow Your Activity Business with{" "}
-                <span className="text-secondary">KidVenture</span>
+                Aktivite İşinizi{" "}
+                <span className="text-secondary">ÇocukMacera</span>{" "}
+                ile Büyütün
               </h1>
               <p className="text-lg text-muted-foreground mb-8">
-                Join our network of trusted activity providers and connect with thousands of families looking for amazing experiences for their children.
+                Güvenilir aktivite sağlayıcıları ağımıza katılın ve çocukları için harika deneyimler arayan binlerce aileyle bağlantı kurun.
               </p>
               <div className="flex flex-wrap gap-4">
                 <div className="flex items-center gap-2">
                   <CheckCircle className="text-secondary" size={20} />
-                  <span>Free to join</span>
+                  <span>Katılım ücretsiz</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle className="text-secondary" size={20} />
-                  <span>No upfront costs</span>
+                  <span>Peşin ödeme yok</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle className="text-secondary" size={20} />
-                  <span>Cancel anytime</span>
+                  <span>İstediğiniz zaman iptal</span>
                 </div>
               </div>
             </div>
             <div className="bg-card rounded-3xl p-8 shadow-large">
               <div className="text-center mb-6">
-                <p className="text-4xl font-display font-bold text-foreground">10,000+</p>
-                <p className="text-muted-foreground">Active families on platform</p>
+                <p className="text-4xl font-display font-bold text-foreground">10.000+</p>
+                <p className="text-muted-foreground">Platformdaki aktif aile</p>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-muted rounded-xl p-4 text-center">
                   <p className="text-2xl font-bold text-foreground">50+</p>
-                  <p className="text-sm text-muted-foreground">Cities covered</p>
+                  <p className="text-sm text-muted-foreground">Kapsanan şehir</p>
                 </div>
                 <div className="bg-muted rounded-xl p-4 text-center">
                   <p className="text-2xl font-bold text-foreground">100+</p>
-                  <p className="text-sm text-muted-foreground">Active providers</p>
+                  <p className="text-sm text-muted-foreground">Aktif sağlayıcı</p>
                 </div>
               </div>
             </div>
@@ -137,10 +160,10 @@ const Providers = () => {
         <div className="container-width">
           <div className="text-center mb-12">
             <h2 className="font-display text-3xl font-bold text-foreground mb-4">
-              Why Partner With Us?
+              Neden Bizimle Ortaklık Kurmalısınız?
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Everything you need to manage and grow your activity business
+              Aktivite işinizi yönetmek ve büyütmek için ihtiyacınız olan her şey
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -169,10 +192,10 @@ const Providers = () => {
         <div className="container-width max-w-3xl">
           <div className="text-center mb-12">
             <h2 className="font-display text-3xl font-bold text-foreground mb-4">
-              Apply to Become a Provider
+              Sağlayıcı Olmak İçin Başvurun
             </h2>
             <p className="text-muted-foreground">
-              Fill out the form below and our team will review your application within 2-3 business days.
+              Aşağıdaki formu doldurun, ekibimiz başvurunuzu 2-3 iş günü içinde inceleyecektir.
             </p>
           </div>
 
@@ -182,13 +205,13 @@ const Providers = () => {
                 <CheckCircle className="text-secondary" size={40} />
               </div>
               <h3 className="font-display text-2xl font-bold text-foreground mb-4">
-                Application Submitted!
+                Başvuru Gönderildi!
               </h3>
               <p className="text-muted-foreground mb-6">
-                Thank you for applying to become a KidVenture provider. We'll review your application and get back to you within 2-3 business days.
+                ÇocukMacera sağlayıcısı olmak için başvurduğunuz için teşekkür ederiz. Başvurunuzu inceleyip 2-3 iş günü içinde size döneceğiz.
               </p>
               <Button variant="teal" onClick={() => setSubmitted(false)}>
-                Submit Another Application
+                Başka Bir Başvuru Gönder
               </Button>
             </div>
           ) : (
@@ -196,7 +219,7 @@ const Providers = () => {
               <div className="grid md:grid-cols-2 gap-6 mb-6">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Business Name *
+                    İşletme Adı *
                   </label>
                   <input
                     type="text"
@@ -205,12 +228,12 @@ const Providers = () => {
                     onChange={handleInputChange}
                     required
                     className="w-full px-4 py-3 rounded-xl bg-muted border-0 focus:outline-none focus:ring-2 focus:ring-secondary"
-                    placeholder="Your business name"
+                    placeholder="İşletmenizin adı"
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Contact Name *
+                    İletişim Kişisi *
                   </label>
                   <input
                     type="text"
@@ -219,7 +242,7 @@ const Providers = () => {
                     onChange={handleInputChange}
                     required
                     className="w-full px-4 py-3 rounded-xl bg-muted border-0 focus:outline-none focus:ring-2 focus:ring-secondary"
-                    placeholder="Your full name"
+                    placeholder="Adınız soyadınız"
                   />
                 </div>
               </div>
@@ -227,7 +250,7 @@ const Providers = () => {
               <div className="grid md:grid-cols-2 gap-6 mb-6">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Email Address *
+                    E-posta Adresi *
                   </label>
                   <input
                     type="email"
@@ -236,12 +259,12 @@ const Providers = () => {
                     onChange={handleInputChange}
                     required
                     className="w-full px-4 py-3 rounded-xl bg-muted border-0 focus:outline-none focus:ring-2 focus:ring-secondary"
-                    placeholder="you@example.com"
+                    placeholder="ornek@email.com"
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Phone Number *
+                    Telefon Numarası *
                   </label>
                   <input
                     type="tel"
@@ -250,7 +273,7 @@ const Providers = () => {
                     onChange={handleInputChange}
                     required
                     className="w-full px-4 py-3 rounded-xl bg-muted border-0 focus:outline-none focus:ring-2 focus:ring-secondary"
-                    placeholder="(555) 123-4567"
+                    placeholder="0532 123 4567"
                   />
                 </div>
               </div>
@@ -258,7 +281,7 @@ const Providers = () => {
               <div className="grid md:grid-cols-2 gap-6 mb-6">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Website (optional)
+                    Web Sitesi (isteğe bağlı)
                   </label>
                   <input
                     type="url"
@@ -266,12 +289,12 @@ const Providers = () => {
                     value={formData.website}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 rounded-xl bg-muted border-0 focus:outline-none focus:ring-2 focus:ring-secondary"
-                    placeholder="https://yourwebsite.com"
+                    placeholder="https://websiteniz.com"
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Location *
+                    Konum *
                   </label>
                   <input
                     type="text"
@@ -280,14 +303,14 @@ const Providers = () => {
                     onChange={handleInputChange}
                     required
                     className="w-full px-4 py-3 rounded-xl bg-muted border-0 focus:outline-none focus:ring-2 focus:ring-secondary"
-                    placeholder="City, State"
+                    placeholder="İlçe, Şehir"
                   />
                 </div>
               </div>
 
               <div className="mb-6">
                 <label className="block text-sm font-medium text-foreground mb-2">
-                  Activity Categories *
+                  Aktivite Kategorileri *
                 </label>
                 <div className="flex flex-wrap gap-3">
                   {categories.map((category) => (
@@ -305,11 +328,16 @@ const Providers = () => {
                     </button>
                   ))}
                 </div>
+                {formData.categories.length > 0 && (
+                  <p className="text-sm text-muted-foreground mt-2">
+                    Seçili: {formData.categories.join(", ")}
+                  </p>
+                )}
               </div>
 
               <div className="mb-6">
                 <label className="block text-sm font-medium text-foreground mb-2">
-                  Tell Us About Your Activities *
+                  Aktiviteleriniz Hakkında Bilgi Verin *
                 </label>
                 <textarea
                   name="description"
@@ -318,31 +346,50 @@ const Providers = () => {
                   required
                   rows={4}
                   className="w-full px-4 py-3 rounded-xl bg-muted border-0 focus:outline-none focus:ring-2 focus:ring-secondary resize-none"
-                  placeholder="Describe your activities, target age groups, experience, and what makes your programs special..."
+                  placeholder="Aktivitelerinizi, hedef yaş gruplarını, deneyiminizi ve programlarınızı özel kılan şeyleri anlatın..."
                 />
               </div>
 
               <div className="mb-8">
                 <label className="block text-sm font-medium text-foreground mb-2">
-                  Upload Images (optional)
+                  Fotoğraf Yükleyin (isteğe bağlı)
                 </label>
-                <div className="border-2 border-dashed border-border rounded-xl p-8 text-center hover:border-secondary transition-colors cursor-pointer">
+                <div className="border-2 border-dashed border-border rounded-xl p-8 text-center hover:border-secondary transition-colors cursor-pointer relative">
+                  <input
+                    type="file"
+                    multiple
+                    accept="image/*"
+                    onChange={handleFileUpload}
+                    className="absolute inset-0 opacity-0 cursor-pointer"
+                  />
                   <Upload className="mx-auto text-muted-foreground mb-2" size={32} />
                   <p className="text-muted-foreground text-sm">
-                    Drag and drop images here, or click to browse
+                    Fotoğrafları buraya sürükleyin veya göz atmak için tıklayın
                   </p>
                   <p className="text-xs text-muted-foreground mt-1">
-                    PNG, JPG up to 10MB each
+                    PNG, JPG her biri max 10MB
                   </p>
                 </div>
+                {uploadedFiles.length > 0 && (
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {uploadedFiles.map((file) => (
+                      <div key={file} className="flex items-center gap-2 bg-muted px-3 py-1 rounded-lg">
+                        <span className="text-sm">{file}</span>
+                        <button onClick={() => removeFile(file)} className="text-muted-foreground hover:text-foreground">
+                          <X size={14} />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
 
               <Button type="submit" variant="teal" size="xl" className="w-full">
-                Submit Application
+                Başvuruyu Gönder
               </Button>
 
               <p className="text-xs text-muted-foreground text-center mt-4">
-                By submitting, you agree to our Terms of Service and Privacy Policy.
+                Göndererek, Kullanım Koşullarımızı ve Gizlilik Politikamızı kabul etmiş olursunuz.
               </p>
             </form>
           )}

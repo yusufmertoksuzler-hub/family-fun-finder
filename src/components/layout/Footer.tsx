@@ -6,22 +6,22 @@ const Footer = () => {
 
   const footerLinks = {
     platform: [
-      { href: "/activities", label: "Browse Activities" },
-      { href: "/providers", label: "Become a Provider" },
+      { href: "/activities", label: "Aktiviteleri Keşfet" },
+      { href: "/providers", label: "Sağlayıcı Ol" },
       { href: "/blog", label: "Blog" },
-      { href: "/about", label: "About Us" },
+      { href: "/about", label: "Hakkımızda" },
     ],
     activities: [
-      { href: "/activities?category=sports", label: "Sports" },
-      { href: "/activities?category=arts", label: "Arts & Crafts" },
-      { href: "/activities?category=music", label: "Music" },
+      { href: "/activities?category=sports", label: "Spor" },
+      { href: "/activities?category=arts", label: "Sanat & El İşi" },
+      { href: "/activities?category=music", label: "Müzik" },
       { href: "/activities?category=stem", label: "STEM" },
     ],
     support: [
-      { href: "/contact", label: "Contact Us" },
-      { href: "/faq", label: "FAQ" },
-      { href: "/privacy", label: "Privacy Policy" },
-      { href: "/terms", label: "Terms of Service" },
+      { href: "/contact", label: "İletişim" },
+      { href: "/faq", label: "SSS" },
+      { href: "/privacy", label: "Gizlilik Politikası" },
+      { href: "/terms", label: "Kullanım Koşulları" },
     ],
   };
 
@@ -40,12 +40,12 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-6">
               <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-display font-bold text-xl">K</span>
+                <span className="text-primary-foreground font-display font-bold text-xl">Ç</span>
               </div>
-              <span className="font-display font-bold text-xl">KidVenture</span>
+              <span className="font-display font-bold text-xl">ÇocukMacera</span>
             </Link>
             <p className="text-primary-foreground/70 mb-6 max-w-sm">
-              Discover amazing activities for your kids. From sports to arts, find the perfect experiences that help children learn, grow, and have fun.
+              Çocuklarınız için harika aktiviteler keşfedin. Spordan sanata, çocukların öğrenmesine, büyümesine ve eğlenmesine yardımcı olacak mükemmel deneyimleri bulun.
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social) => (
@@ -80,7 +80,7 @@ const Footer = () => {
 
           {/* Activities Links */}
           <div>
-            <h4 className="font-display font-bold text-lg mb-4">Activities</h4>
+            <h4 className="font-display font-bold text-lg mb-4">Aktiviteler</h4>
             <ul className="space-y-3">
               {footerLinks.activities.map((link) => (
                 <li key={link.href}>
@@ -97,19 +97,19 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-display font-bold text-lg mb-4">Contact</h4>
+            <h4 className="font-display font-bold text-lg mb-4">İletişim</h4>
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-primary-foreground/70">
                 <Mail size={18} />
-                <span>hello@kidventure.com</span>
+                <span>merhaba@cocukmacera.com</span>
               </li>
               <li className="flex items-center gap-3 text-primary-foreground/70">
                 <Phone size={18} />
-                <span>(555) 123-4567</span>
+                <span>0212 555 12 34</span>
               </li>
               <li className="flex items-start gap-3 text-primary-foreground/70">
                 <MapPin size={18} className="mt-1" />
-                <span>123 Family Lane<br />San Francisco, CA 94102</span>
+                <span>Levent Mah. Çocuk Sk. No:1<br />İstanbul, Türkiye</span>
               </li>
             </ul>
           </div>
@@ -118,7 +118,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-primary-foreground/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-primary-foreground/50 text-sm">
-            © {currentYear} KidVenture. All rights reserved.
+            © {currentYear} ÇocukMacera. Tüm hakları saklıdır.
           </p>
           <div className="flex gap-6 text-sm">
             {footerLinks.support.slice(2).map((link) => (

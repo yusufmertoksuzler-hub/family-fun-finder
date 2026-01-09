@@ -3,6 +3,7 @@ import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/seo/SEOHead";
 import { Clock, User, Calendar, ArrowLeft, Share2, Bookmark } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 // Mock blog data - in production, this would come from a CMS
 const blogPostsData: Record<string, {
@@ -18,97 +19,97 @@ const blogPostsData: Record<string, {
   tags: string[];
 }> = {
   "benefits-of-extracurricular-activities": {
-    title: "10 Benefits of Extracurricular Activities for Children",
-    excerpt: "Discover how extracurricular activities can boost your child's confidence, social skills, and academic performance.",
+    title: "Çocuklar İçin Okul Dışı Aktivitelerin 10 Faydası",
+    excerpt: "Okul dışı aktivitelerin çocuğunuzun özgüvenini, sosyal becerilerini ve akademik performansını nasıl artırabileceğini keşfedin.",
     content: `
-      <p>Extracurricular activities play a crucial role in a child's overall development. While academic education provides the foundation, activities outside the classroom help children develop essential life skills that will serve them well into adulthood.</p>
+      <p>Okul dışı aktiviteler, bir çocuğun genel gelişiminde kritik bir rol oynar. Akademik eğitim temel oluştursa da, sınıf dışı aktiviteler çocukların yetişkinliğe kadar işlerine yarayacak temel yaşam becerilerini geliştirmelerine yardımcı olur.</p>
       
-      <h2>1. Improved Academic Performance</h2>
-      <p>Contrary to concerns that extracurricular activities take time away from studying, research consistently shows that children who participate in structured activities often perform better academically. These activities teach time management and help children develop better focus and concentration.</p>
+      <h2>1. Gelişmiş Akademik Performans</h2>
+      <p>Okul dışı aktivitelerin çalışmaktan zaman çaldığı endişelerinin aksine, araştırmalar tutarlı bir şekilde yapılandırılmış aktivitelere katılan çocukların genellikle akademik olarak daha iyi performans gösterdiğini ortaya koymaktadır. Bu aktiviteler zaman yönetimi öğretir ve çocukların daha iyi odaklanma ve konsantrasyon geliştirmelerine yardımcı olur.</p>
       
-      <h2>2. Social Skills Development</h2>
-      <p>Team sports, group music lessons, and collaborative art projects provide excellent opportunities for children to interact with peers outside the classroom setting. They learn to communicate, cooperate, and resolve conflicts in constructive ways.</p>
+      <h2>2. Sosyal Beceri Gelişimi</h2>
+      <p>Takım sporları, grup müzik dersleri ve işbirlikçi sanat projeleri, çocukların sınıf ortamı dışında akranlarıyla etkileşim kurmaları için mükemmel fırsatlar sunar. İletişim kurmayı, işbirliği yapmayı ve yapıcı yollarla çatışmaları çözmeyi öğrenirler.</p>
       
-      <h2>3. Building Self-Confidence</h2>
-      <p>Mastering a new skill, whether it's scoring a goal or performing in a recital, builds tremendous self-confidence. This sense of accomplishment translates to other areas of life, including academics and social situations.</p>
+      <h2>3. Özgüven Oluşturma</h2>
+      <p>İster gol atmak ister bir resitalde sahne almak olsun, yeni bir beceriyi ustalaşmak muazzam özgüven inşa eder. Bu başarı duygusu, akademik ve sosyal durumlar dahil olmak üzere hayatın diğer alanlarına da yansır.</p>
       
-      <h2>4. Physical Health Benefits</h2>
-      <p>Active extracurricular activities like sports, dance, and martial arts help children develop healthy habits early in life. Regular physical activity reduces the risk of obesity and associated health problems.</p>
+      <h2>4. Fiziksel Sağlık Faydaları</h2>
+      <p>Spor, dans ve dövüş sanatları gibi aktif okul dışı aktiviteler, çocukların erken yaşta sağlıklı alışkanlıklar geliştirmelerine yardımcı olur. Düzenli fiziksel aktivite, obezite ve buna bağlı sağlık sorunları riskini azaltır.</p>
       
-      <h2>5. Stress Reduction</h2>
-      <p>Activities provide a healthy outlet for stress and anxiety. Creative pursuits like art and music, in particular, have been shown to reduce cortisol levels and promote emotional well-being.</p>
+      <h2>5. Stres Azaltma</h2>
+      <p>Aktiviteler stres ve kaygı için sağlıklı bir çıkış noktası sağlar. Özellikle sanat ve müzik gibi yaratıcı uğraşların kortizol seviyelerini düşürdüğü ve duygusal refahı teşvik ettiği gösterilmiştir.</p>
       
-      <h2>6. Time Management Skills</h2>
-      <p>Balancing homework, activities, and free time teaches children valuable organizational skills. They learn to prioritize and manage their schedules effectively.</p>
+      <h2>6. Zaman Yönetimi Becerileri</h2>
+      <p>Ödev, aktiviteler ve boş zamanı dengelemek çocuklara değerli organizasyon becerileri öğretir. Önceliklendirmeyi ve programlarını etkili bir şekilde yönetmeyi öğrenirler.</p>
       
-      <h2>7. Exploring Interests and Talents</h2>
-      <p>Extracurricular activities give children the chance to explore different interests and discover hidden talents. This exploration is crucial for developing a sense of identity and future career interests.</p>
+      <h2>7. İlgi Alanlarını ve Yetenekleri Keşfetme</h2>
+      <p>Okul dışı aktiviteler, çocuklara farklı ilgi alanlarını keşfetme ve gizli yeteneklerini ortaya çıkarma şansı verir. Bu keşif, kimlik duygusu ve gelecekteki kariyer ilgi alanlarının geliştirilmesi için çok önemlidir.</p>
       
-      <h2>8. Learning Resilience</h2>
-      <p>Not every practice will go perfectly, and not every competition will be won. These experiences teach children how to handle disappointment, learn from failures, and keep trying.</p>
+      <h2>8. Dayanıklılık Öğrenme</h2>
+      <p>Her antrenman mükemmel gitmez ve her yarışma kazanılmaz. Bu deneyimler çocuklara hayal kırıklığıyla nasıl başa çıkacaklarını, hatalardan ders çıkarmayı ve denemeye devam etmeyi öğretir.</p>
       
-      <h2>9. Leadership Opportunities</h2>
-      <p>Many activities provide natural leadership opportunities, whether it's being a team captain, leading a section in band, or mentoring younger participants.</p>
+      <h2>9. Liderlik Fırsatları</h2>
+      <p>Birçok aktivite, ister takım kaptanı olmak, ister grupta bir bölüme liderlik etmek veya daha genç katılımcılara mentorluk yapmak olsun, doğal liderlik fırsatları sunar.</p>
       
-      <h2>10. College and Career Preparation</h2>
-      <p>Participation in extracurricular activities demonstrates commitment, passion, and well-roundedness to college admissions officers and future employers.</p>
+      <h2>10. Üniversite ve Kariyer Hazırlığı</h2>
+      <p>Okul dışı aktivitelere katılım, üniversite kabul görevlilerine ve gelecekteki işverenlere bağlılık, tutku ve çok yönlülük gösterir.</p>
       
-      <h2>Getting Started</h2>
-      <p>The key is finding activities that match your child's interests and schedule. Don't overcommit – quality is more important than quantity. Let your child have input in choosing their activities, and be supportive but not pushy.</p>
+      <h2>Başlarken</h2>
+      <p>Anahtar, çocuğunuzun ilgi alanlarına ve programına uygun aktiviteler bulmaktır. Aşırıya kaçmayın – kalite miktardan daha önemlidir. Çocuğunuzun aktivitelerini seçerken söz hakkına sahip olmasına izin verin ve destekleyici olun ama zorlamayın.</p>
     `,
-    category: "Parenting Tips",
-    author: "Dr. Emily Chen",
-    authorRole: "Child Development Specialist",
-    readTime: "5 min read",
+    category: "Ebeveyn İpuçları",
+    author: "Dr. Elif Demir",
+    authorRole: "Çocuk Gelişimi Uzmanı",
+    readTime: "5 dk okuma",
     date: "2024-01-15",
     image: "🎯",
-    tags: ["parenting", "child development", "activities", "education"],
+    tags: ["ebeveynlik", "çocuk gelişimi", "aktiviteler", "eğitim"],
   },
   "choosing-right-sport-for-your-child": {
-    title: "How to Choose the Right Sport for Your Child",
-    excerpt: "A comprehensive guide to matching your child's interests and abilities with the perfect sport.",
+    title: "Çocuğunuz İçin Doğru Sporu Nasıl Seçersiniz?",
+    excerpt: "Çocuğunuzun ilgi alanlarını ve yeteneklerini mükemmel sporla eşleştirmek için kapsamlı bir rehber.",
     content: `
-      <p>Choosing the right sport for your child can set them up for years of enjoyment and healthy habits. Here's how to find the perfect match.</p>
+      <p>Çocuğunuz için doğru sporu seçmek, onları yıllarca sürecek keyif ve sağlıklı alışkanlıklar için hazırlayabilir. İşte mükemmel eşleşmeyi nasıl bulacağınız.</p>
       
-      <h2>Consider Your Child's Personality</h2>
-      <p>Is your child naturally competitive or more cooperative? Do they thrive in team environments or prefer individual achievement? Understanding your child's personality helps narrow down options.</p>
+      <h2>Çocuğunuzun Kişiliğini Düşünün</h2>
+      <p>Çocuğunuz doğal olarak rekabetçi mi yoksa daha işbirlikçi mi? Takım ortamlarında mı gelişiyor yoksa bireysel başarıyı mı tercih ediyor? Çocuğunuzun kişiliğini anlamak, seçenekleri daraltmaya yardımcı olur.</p>
       
-      <h2>Age-Appropriate Activities</h2>
-      <p>Young children (ages 3-5) benefit from activities focused on basic motor skills. As children grow, they can handle more complex rules and strategies. Wait until age 6-8 before introducing competitive sports.</p>
+      <h2>Yaşa Uygun Aktiviteler</h2>
+      <p>Küçük çocuklar (3-5 yaş) temel motor becerilere odaklanan aktivitelerden faydalanır. Çocuklar büyüdükçe daha karmaşık kurallar ve stratejilerle başa çıkabilirler. Rekabetçi sporları tanıtmak için 6-8 yaşına kadar bekleyin.</p>
       
-      <h2>Physical Considerations</h2>
-      <p>Every child has different physical strengths. Some may excel in activities requiring endurance, while others might be better suited for sports requiring quick bursts of energy or flexibility.</p>
+      <h2>Fiziksel Değerlendirmeler</h2>
+      <p>Her çocuğun farklı fiziksel güçlü yönleri vardır. Bazıları dayanıklılık gerektiren aktivitelerde başarılı olabilirken, diğerleri hızlı enerji patlamaları veya esneklik gerektiren sporlar için daha uygun olabilir.</p>
       
-      <h2>Try Before Committing</h2>
-      <p>Many programs offer trial classes. Take advantage of these to let your child experience different activities before making a long-term commitment.</p>
+      <h2>Taahhüt Etmeden Önce Deneyin</h2>
+      <p>Birçok program deneme dersleri sunar. Uzun vadeli bir taahhütte bulunmadan önce çocuğunuzun farklı aktiviteleri deneyimlemesine izin vermek için bunlardan yararlanın.</p>
     `,
-    category: "Sports",
-    author: "Coach Mike Johnson",
-    authorRole: "Youth Sports Director",
-    readTime: "7 min read",
+    category: "Spor",
+    author: "Antrenör Ahmet Yılmaz",
+    authorRole: "Gençlik Sporları Direktörü",
+    readTime: "7 dk okuma",
     date: "2024-01-10",
     image: "⚽",
-    tags: ["sports", "kids sports", "physical activity", "choosing activities"],
+    tags: ["spor", "çocuk sporları", "fiziksel aktivite", "aktivite seçimi"],
   },
 };
 
 const relatedPosts = [
   {
     slug: "stem-activities-at-home",
-    title: "Fun STEM Activities You Can Do at Home",
+    title: "Evde Yapabileceğiniz Eğlenceli STEM Aktiviteleri",
     category: "STEM",
     image: "🔬",
   },
   {
     slug: "importance-of-creative-play",
-    title: "The Importance of Creative Play",
-    category: "Development",
+    title: "Yaratıcı Oyunun Önemi",
+    category: "Gelişim",
     image: "🎨",
   },
   {
     slug: "summer-camp-preparation-guide",
-    title: "Complete Summer Camp Prep Guide",
-    category: "Summer",
+    title: "Yaz Kampı Hazırlık Rehberi",
+    category: "Yaz",
     image: "🏕️",
   },
 ];
@@ -117,22 +118,33 @@ const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? blogPostsData[slug] : null;
 
+  const handleShare = () => {
+    navigator.clipboard.writeText(window.location.href);
+    toast.success("Bağlantı panoya kopyalandı!");
+  };
+
+  const handleSave = () => {
+    toast.success("Makale kaydedildi!", {
+      description: "Kaydedilen makalelerinize profilinizden erişebilirsiniz."
+    });
+  };
+
   if (!post) {
     return (
       <Layout>
         <SEOHead
-          title="Post Not Found"
-          description="The blog post you're looking for doesn't exist."
+          title="Yazı Bulunamadı"
+          description="Aradığınız blog yazısı mevcut değil."
         />
         <div className="section-padding container-width text-center py-24">
           <h1 className="font-display text-4xl font-bold text-foreground mb-4">
-            Post Not Found
+            Yazı Bulunamadı
           </h1>
           <p className="text-muted-foreground mb-8">
-            The article you're looking for doesn't exist.
+            Aradığınız makale mevcut değil.
           </p>
           <Button asChild>
-            <Link to="/blog">Back to Blog</Link>
+            <Link to="/blog">Bloga Dön</Link>
           </Button>
         </div>
       </Layout>
@@ -162,7 +174,7 @@ const BlogPost = () => {
               className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary mb-6"
             >
               <ArrowLeft size={18} />
-              Back to Blog
+              Bloga Dön
             </Link>
 
             <span className="inline-block px-3 py-1 rounded-full bg-secondary/10 text-secondary text-sm font-medium mb-4">
@@ -191,7 +203,7 @@ const BlogPost = () => {
               </div>
               <span className="flex items-center gap-2">
                 <Calendar size={16} />
-                {new Date(post.date).toLocaleDateString("en-US", { 
+                {new Date(post.date).toLocaleDateString("tr-TR", { 
                   year: "numeric", 
                   month: "long", 
                   day: "numeric" 
@@ -205,13 +217,13 @@ const BlogPost = () => {
 
             {/* Share buttons */}
             <div className="flex gap-3 mt-8">
-              <Button variant="outline" size="sm">
+              <Button variant="outline" size="sm" onClick={handleShare}>
                 <Share2 size={16} />
-                Share
+                Paylaş
               </Button>
-              <Button variant="outline" size="sm">
+              <Button variant="outline" size="sm" onClick={handleSave}>
                 <Bookmark size={16} />
-                Save
+                Kaydet
               </Button>
             </div>
           </div>
@@ -238,7 +250,7 @@ const BlogPost = () => {
 
           {/* Tags */}
           <div className="mt-12 pt-8 border-t border-border">
-            <h4 className="font-semibold text-foreground mb-4">Tags:</h4>
+            <h4 className="font-semibold text-foreground mb-4">Etiketler:</h4>
             <div className="flex flex-wrap gap-2">
               {post.tags.map((tag) => (
                 <span
@@ -256,7 +268,7 @@ const BlogPost = () => {
         <section className="section-padding bg-muted/50">
           <div className="container-width">
             <h2 className="font-display text-2xl font-bold text-foreground mb-8">
-              Related Articles
+              İlgili Makaleler
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
               {relatedPosts.map((related) => (
