@@ -11,8 +11,8 @@ const Index = () => {
   return (
     <Layout>
       <SEOHead
-        title="Find Amazing Activities for Kids"
-        description="Discover and book the best activities for your children. From sports to arts, music to STEM - find age-appropriate experiences that help kids learn, grow, and have fun."
+        title="Çocuklarınız İçin Harika Aktiviteler Keşfedin"
+        description="Çocuklarınız için en iyi aktiviteleri keşfedin ve rezervasyon yapın. Spordan sanata, müzikten STEM'e - çocukların öğrenmesine, büyümesine ve eğlenmesine yardımcı olan yaşa uygun deneyimler bulun."
         canonical="/"
       />
       <HeroSection />

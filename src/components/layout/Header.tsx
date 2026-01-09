@@ -2,21 +2,28 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { toast } from "sonner";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
   const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/activities", label: "Activities" },
+    { href: "/", label: "Ana Sayfa" },
+    { href: "/activities", label: "Aktiviteler" },
     { href: "/blog", label: "Blog" },
-    { href: "/providers", label: "For Providers" },
-    { href: "/about", label: "About" },
-    { href: "/contact", label: "Contact" },
+    { href: "/providers", label: "Sağlayıcılar" },
+    { href: "/about", label: "Hakkımızda" },
+    { href: "/contact", label: "İletişim" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
+
+  const handleDownloadApp = () => {
+    toast.success("Uygulama indirme linki e-postanıza gönderildi!", {
+      description: "App Store ve Google Play bağlantıları için e-postanızı kontrol edin."
+    });
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-card/80 backdrop-blur-lg border-b border-border">
@@ -25,9 +32,9 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-display font-bold text-xl">K</span>
+              <span className="text-primary-foreground font-display font-bold text-xl">Ç</span>
             </div>
-            <span className="font-display font-bold text-xl text-foreground">KidVenture</span>
+            <span className="font-display font-bold text-xl text-foreground">ÇocukMacera</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -47,11 +54,11 @@ const Header = () => {
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-3">
-            <Button variant="tealOutline" size="sm">
-              Download App
+            <Button variant="tealOutline" size="sm" onClick={handleDownloadApp}>
+              Uygulamayı İndir
             </Button>
-            <Button variant="hero" size="sm">
-              List Your Activity
+            <Button variant="hero" size="sm" asChild>
+              <Link to="/providers">Aktivite Ekle</Link>
             </Button>
           </div>
 
@@ -59,7 +66,7 @@ const Header = () => {
           <button
             className="lg:hidden p-2 text-foreground"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label="Menüyü aç/kapat"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -82,11 +89,11 @@ const Header = () => {
                 </Link>
               ))}
               <div className="flex flex-col gap-3 mt-4">
-                <Button variant="tealOutline" size="default">
-                  Download App
+                <Button variant="tealOutline" size="default" onClick={handleDownloadApp}>
+                  Uygulamayı İndir
                 </Button>
-                <Button variant="hero" size="default">
-                  List Your Activity
+                <Button variant="hero" size="default" asChild>
+                  <Link to="/providers">Aktivite Ekle</Link>
                 </Button>
               </div>
             </div>

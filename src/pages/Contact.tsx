@@ -3,31 +3,32 @@ import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/seo/SEOHead";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from "lucide-react";
+import { toast } from "sonner";
 
 const contactInfo = [
   {
     icon: Mail,
-    title: "Email Us",
-    value: "hello@kidventure.com",
-    description: "We'll respond within 24 hours",
+    title: "E-posta",
+    value: "merhaba@cocukmacera.com",
+    description: "24 saat içinde yanıt veririz",
   },
   {
     icon: Phone,
-    title: "Call Us",
-    value: "(555) 123-4567",
-    description: "Mon-Fri, 9am-6pm PT",
+    title: "Telefon",
+    value: "0212 555 12 34",
+    description: "Pzt-Cum, 09:00-18:00",
   },
   {
     icon: MapPin,
-    title: "Visit Us",
-    value: "123 Family Lane",
-    description: "San Francisco, CA 94102",
+    title: "Adres",
+    value: "Levent Mah. Çocuk Sk. No:1",
+    description: "İstanbul, Türkiye",
   },
   {
     icon: Clock,
-    title: "Business Hours",
-    value: "Mon-Fri: 9am-6pm",
-    description: "Weekend support available",
+    title: "Çalışma Saatleri",
+    value: "Pzt-Cum: 09:00-18:00",
+    description: "Hafta sonu destek mevcut",
   },
 ];
 
@@ -48,14 +49,15 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
+    toast.success("Mesajınız başarıyla gönderildi!");
     setSubmitted(true);
   };
 
   return (
     <Layout>
       <SEOHead
-        title="Contact Us - Get in Touch"
-        description="Have questions about KidVenture? Contact our team for support with finding activities, provider applications, or general inquiries."
+        title="İletişim - Bize Ulaşın"
+        description="ÇocukMacera hakkında sorularınız mı var? Aktivite bulma, sağlayıcı başvuruları veya genel sorularınız için ekibimizle iletişime geçin."
         canonical="/contact"
       />
 
@@ -63,10 +65,10 @@ const Contact = () => {
       <section className="bg-gradient-to-b from-lavender/20 to-background section-padding py-12 md:py-16">
         <div className="container-width text-center">
           <h1 className="font-display text-4xl sm:text-5xl font-bold text-foreground mb-4">
-            Get in Touch
+            Bize Ulaşın
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Have a question or feedback? We'd love to hear from you. Our team is here to help you find the perfect activities for your children.
+            Bir sorunuz veya geri bildiriminiz mi var? Sizden haber almaktan memnuniyet duyarız. Ekibimiz çocuklarınız için mükemmel aktiviteleri bulmanıza yardımcı olmak için burada.
           </p>
         </div>
       </section>
@@ -96,10 +98,10 @@ const Contact = () => {
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
               <h2 className="font-display text-2xl font-bold text-foreground mb-4">
-                Send Us a Message
+                Bize Mesaj Gönderin
               </h2>
               <p className="text-muted-foreground mb-8">
-                Fill out the form and we'll get back to you as soon as possible. For urgent matters, please call us directly.
+                Formu doldurun, en kısa sürede size döneceğiz. Acil konular için lütfen bizi doğrudan arayın.
               </p>
 
               {submitted ? (
@@ -108,13 +110,13 @@ const Contact = () => {
                     <CheckCircle className="text-secondary" size={32} />
                   </div>
                   <h3 className="font-display text-xl font-bold text-foreground mb-2">
-                    Message Sent!
+                    Mesaj Gönderildi!
                   </h3>
                   <p className="text-muted-foreground mb-4">
-                    Thank you for reaching out. We'll respond within 24 hours.
+                    Bize ulaştığınız için teşekkür ederiz. 24 saat içinde yanıt vereceğiz.
                   </p>
                   <Button variant="secondary" onClick={() => setSubmitted(false)}>
-                    Send Another Message
+                    Başka Bir Mesaj Gönder
                   </Button>
                 </div>
               ) : (
@@ -122,7 +124,7 @@ const Contact = () => {
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">
-                        Your Name *
+                        Adınız *
                       </label>
                       <input
                         type="text"
@@ -131,12 +133,12 @@ const Contact = () => {
                         onChange={handleInputChange}
                         required
                         className="w-full px-4 py-3 rounded-xl bg-muted border-0 focus:outline-none focus:ring-2 focus:ring-primary"
-                        placeholder="John Smith"
+                        placeholder="Ahmet Yılmaz"
                       />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">
-                        Email Address *
+                        E-posta Adresiniz *
                       </label>
                       <input
                         type="email"
@@ -145,14 +147,14 @@ const Contact = () => {
                         onChange={handleInputChange}
                         required
                         className="w-full px-4 py-3 rounded-xl bg-muted border-0 focus:outline-none focus:ring-2 focus:ring-primary"
-                        placeholder="you@example.com"
+                        placeholder="ornek@email.com"
                       />
                     </div>
                   </div>
 
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
-                      Subject *
+                      Konu *
                     </label>
                     <select
                       name="subject"
@@ -161,19 +163,19 @@ const Contact = () => {
                       required
                       className="w-full px-4 py-3 rounded-xl bg-muted border-0 focus:outline-none focus:ring-2 focus:ring-primary"
                     >
-                      <option value="">Select a topic</option>
-                      <option value="general">General Inquiry</option>
-                      <option value="activities">Finding Activities</option>
-                      <option value="provider">Provider Support</option>
-                      <option value="technical">Technical Issue</option>
-                      <option value="feedback">Feedback</option>
-                      <option value="partnership">Partnership Inquiry</option>
+                      <option value="">Bir konu seçin</option>
+                      <option value="general">Genel Sorular</option>
+                      <option value="activities">Aktivite Bulma</option>
+                      <option value="provider">Sağlayıcı Desteği</option>
+                      <option value="technical">Teknik Sorun</option>
+                      <option value="feedback">Geri Bildirim</option>
+                      <option value="partnership">İş Birliği Teklifi</option>
                     </select>
                   </div>
 
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
-                      Message *
+                      Mesajınız *
                     </label>
                     <textarea
                       name="message"
@@ -182,13 +184,13 @@ const Contact = () => {
                       required
                       rows={5}
                       className="w-full px-4 py-3 rounded-xl bg-muted border-0 focus:outline-none focus:ring-2 focus:ring-primary resize-none"
-                      placeholder="How can we help you?"
+                      placeholder="Size nasıl yardımcı olabiliriz?"
                     />
                   </div>
 
                   <Button type="submit" variant="hero" size="lg" className="w-full sm:w-auto">
                     <Send size={18} />
-                    Send Message
+                    Mesaj Gönder
                   </Button>
                 </form>
               )}
@@ -197,39 +199,39 @@ const Contact = () => {
             {/* FAQ Preview */}
             <div className="bg-muted/50 rounded-3xl p-8">
               <h2 className="font-display text-2xl font-bold text-foreground mb-6">
-                Frequently Asked Questions
+                Sık Sorulan Sorular
               </h2>
               <div className="space-y-6">
                 <div>
                   <h3 className="font-semibold text-foreground mb-2">
-                    How do I book an activity?
+                    Nasıl aktivite rezervasyonu yaparım?
                   </h3>
                   <p className="text-muted-foreground text-sm">
-                    Simply browse our activities, select one you like, choose an available time slot, and complete the booking through our secure payment system.
+                    Aktivitelerimize göz atın, beğendiğiniz bir tanesini seçin, uygun bir zaman dilimi belirleyin ve güvenli ödeme sistemimiz üzerinden rezervasyonunuzu tamamlayın.
                   </p>
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-2">
-                    Can I cancel a booking?
+                    Rezervasyonu iptal edebilir miyim?
                   </h3>
                   <p className="text-muted-foreground text-sm">
-                    Yes, most bookings can be cancelled up to 24 hours before the activity. Cancellation policies vary by provider and are shown before booking.
+                    Evet, çoğu rezervasyon aktiviteden 24 saat öncesine kadar iptal edilebilir. İptal politikaları sağlayıcıya göre değişir ve rezervasyon öncesinde gösterilir.
                   </p>
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-2">
-                    How do I become a provider?
+                    Nasıl sağlayıcı olurum?
                   </h3>
                   <p className="text-muted-foreground text-sm">
-                    Visit our "For Providers" page and fill out the application form. Our team will review your application within 2-3 business days.
+                    "Sağlayıcılar" sayfamızı ziyaret edin ve başvuru formunu doldurun. Ekibimiz başvurunuzu 2-3 iş günü içinde inceleyecektir.
                   </p>
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-2">
-                    Is KidVenture available in my city?
+                    ÇocukMacera şehrimde mevcut mu?
                   </h3>
                   <p className="text-muted-foreground text-sm">
-                    We're currently available in 50+ cities across the US and growing! Check our activities page to see what's available in your area.
+                    Şu anda Türkiye genelinde 50'den fazla şehirde hizmet veriyoruz ve büyümeye devam ediyoruz! Bölgenizdeki mevcut aktiviteleri görmek için aktiviteler sayfamızı ziyaret edin.
                   </p>
                 </div>
               </div>
@@ -243,7 +245,7 @@ const Contact = () => {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center">
             <MapPin size={48} className="text-muted-foreground mx-auto mb-4" />
-            <p className="text-muted-foreground">Map integration coming soon</p>
+            <p className="text-muted-foreground">Harita entegrasyonu yakında</p>
           </div>
         </div>
       </section>

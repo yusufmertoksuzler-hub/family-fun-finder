@@ -3,35 +3,35 @@ import { Star } from "lucide-react";
 const testimonials = [
   {
     id: 1,
-    name: "Sarah M.",
-    role: "Mother of 2",
-    content: "KidVenture has been a game-changer for our family! We've discovered so many amazing activities for our kids. The booking process is seamless.",
+    name: "Ayşe K.",
+    role: "2 Çocuk Annesi",
+    content: "ÇocukMacera ailemiz için bir devrim oldu! Çocuklarımız için harika aktiviteler keşfettik. Rezervasyon süreci çok kolay.",
     rating: 5,
-    avatar: "SM",
+    avatar: "AK",
   },
   {
     id: 2,
-    name: "Michael T.",
-    role: "Father of 3",
-    content: "As a busy parent, I love how easy it is to find activities that fit our schedule. My kids have tried everything from art classes to coding camps!",
+    name: "Mehmet T.",
+    role: "3 Çocuk Babası",
+    content: "Yoğun bir ebeveyn olarak, programımıza uygun aktiviteler bulmak çok kolay. Çocuklarım sanat derslerinden kodlama kamplarına kadar her şeyi denedi!",
     rating: 5,
     avatar: "MT",
   },
   {
     id: 3,
-    name: "Jennifer L.",
-    role: "Mother of 1",
-    content: "The quality of activity providers on the platform is outstanding. Every experience has been professional and my daughter loves her weekly dance class.",
+    name: "Zeynep L.",
+    role: "1 Çocuk Annesi",
+    content: "Platformdaki aktivite sağlayıcılarının kalitesi harika. Her deneyim profesyoneldi ve kızım haftalık dans dersini çok seviyor.",
     rating: 5,
-    avatar: "JL",
+    avatar: "ZL",
   },
 ];
 
 const stats = [
-  { value: "10,000+", label: "Happy Families" },
-  { value: "500+", label: "Activities" },
-  { value: "100+", label: "Verified Providers" },
-  { value: "4.9/5", label: "Average Rating" },
+  { value: "10.000+", label: "Mutlu Aile" },
+  { value: "500+", label: "Aktivite" },
+  { value: "100+", label: "Onaylı Sağlayıcı" },
+  { value: "4.9/5", label: "Ortalama Puan" },
 ];
 
 const TestimonialsSection = () => {
@@ -57,10 +57,10 @@ const TestimonialsSection = () => {
         {/* Testimonials */}
         <div className="text-center mb-12">
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            What Parents Are Saying
+            Aileler Ne Diyor?
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Join thousands of families who have discovered the joy of finding perfect activities for their children
+            Çocukları için mükemmel aktiviteleri keşfetmenin mutluluğunu yaşayan binlerce aileye katılın
           </p>
         </div>
 

@@ -3,26 +3,26 @@ import { Search, Calendar, Sparkles, Star } from "lucide-react";
 const steps = [
   {
     icon: Search,
-    title: "Discover Activities",
-    description: "Browse hundreds of activities by category, location, age group, and schedule that fits your family.",
+    title: "Aktiviteleri Keşfedin",
+    description: "Kategori, konum, yaş grubu ve ailenize uygun programa göre yüzlerce aktiviteyi keşfedin.",
     color: "bg-coral/10 text-primary",
   },
   {
     icon: Calendar,
-    title: "Book Instantly",
-    description: "Reserve spots with just a few taps. Get instant confirmations and calendar reminders.",
+    title: "Anında Rezervasyon",
+    description: "Birkaç tıkla yer ayırtın. Anında onay ve takvim hatırlatıcıları alın.",
     color: "bg-teal/10 text-secondary",
   },
   {
     icon: Sparkles,
-    title: "Experience Joy",
-    description: "Watch your kids learn, grow, and create lasting memories with amazing experiences.",
+    title: "Keyifle Deneyimleyin",
+    description: "Çocuklarınızın öğrenmesini, büyümesini ve harika deneyimlerle anılar biriktirmesini izleyin.",
     color: "bg-sunshine/20 text-accent-foreground",
   },
   {
     icon: Star,
-    title: "Rate & Review",
-    description: "Share your experience and help other families discover the best activities for their kids.",
+    title: "Değerlendirin",
+    description: "Deneyiminizi paylaşın ve diğer ailelerin en iyi aktiviteleri keşfetmesine yardımcı olun.",
     color: "bg-lavender/30 text-foreground",
   },
 ];
@@ -33,10 +33,10 @@ const HowItWorksSection = () => {
       <div className="container-width">
         <div className="text-center mb-12">
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            How KidVenture Works
+            ÇocukMacera Nasıl Çalışır?
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Finding and booking the perfect activities for your children has never been easier
+            Çocuklarınız için mükemmel aktiviteleri bulmak ve rezervasyon yapmak hiç bu kadar kolay olmamıştı
           </p>
         </div>
 

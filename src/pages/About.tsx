@@ -7,50 +7,50 @@ import { Heart, Target, Users, Sparkles } from "lucide-react";
 const values = [
   {
     icon: Heart,
-    title: "Family First",
-    description: "We believe every child deserves access to enriching activities that help them discover their passions.",
+    title: "Önce Aile",
+    description: "Her çocuğun tutkularını keşfetmelerine yardımcı olacak zenginleştirici aktivitelere erişimi hak ettiğine inanıyoruz.",
   },
   {
     icon: Target,
-    title: "Quality Matters",
-    description: "We carefully vet every activity provider to ensure safe, educational, and enjoyable experiences.",
+    title: "Kalite Önemli",
+    description: "Güvenli, eğitici ve keyifli deneyimler sağlamak için her aktivite sağlayıcısını dikkatle değerlendiriyoruz.",
   },
   {
     icon: Users,
-    title: "Community Driven",
-    description: "Our platform is built on feedback from real parents and providers who shape everything we do.",
+    title: "Topluluk Odaklı",
+    description: "Platformumuz, yaptığımız her şeyi şekillendiren gerçek ebeveynlerden ve sağlayıcılardan gelen geri bildirimler üzerine kurulu.",
   },
   {
     icon: Sparkles,
-    title: "Joy of Discovery",
-    description: "We celebrate the magic of children trying new things and finding what makes them light up.",
+    title: "Keşfin Mutluluğu",
+    description: "Çocukların yeni şeyler denemesinin ve onları neyin heyecanlandırdığını keşfetmesinin büyüsünü kutluyoruz.",
   },
 ];
 
 const team = [
   {
-    name: "Sarah Chen",
-    role: "CEO & Co-founder",
-    bio: "Former teacher turned entrepreneur. Mom of two curious kids.",
-    avatar: "SC",
+    name: "Ayşe Demir",
+    role: "CEO & Kurucu Ortak",
+    bio: "Eski öğretmen, şimdi girişimci. İki meraklı çocuk annesi.",
+    avatar: "AD",
   },
   {
-    name: "Michael Torres",
-    role: "CTO & Co-founder",
-    bio: "Tech enthusiast passionate about making parenting easier.",
-    avatar: "MT",
+    name: "Mehmet Yılmaz",
+    role: "CTO & Kurucu Ortak",
+    bio: "Ebeveynliği kolaylaştırma tutkusu olan teknoloji meraklısı.",
+    avatar: "MY",
   },
   {
-    name: "Jessica Lee",
-    role: "Head of Provider Relations",
-    bio: "10+ years connecting families with quality programs.",
-    avatar: "JL",
+    name: "Zeynep Kaya",
+    role: "Sağlayıcı İlişkileri Müdürü",
+    bio: "Aileleri kaliteli programlarla buluşturmada 10+ yıl deneyim.",
+    avatar: "ZK",
   },
   {
-    name: "David Kim",
-    role: "Head of Product",
-    bio: "UX expert focused on delightful family experiences.",
-    avatar: "DK",
+    name: "Can Öztürk",
+    role: "Ürün Müdürü",
+    bio: "Keyifli aile deneyimlerine odaklanan UX uzmanı.",
+    avatar: "CÖ",
   },
 ];
 
@@ -58,8 +58,8 @@ const About = () => {
   return (
     <Layout>
       <SEOHead
-        title="About Us - Our Mission & Story"
-        description="Learn about KidVenture's mission to help families discover amazing activities for their children. Meet our team and discover what drives us."
+        title="Hakkımızda - Misyonumuz & Hikayemiz"
+        description="ÇocukMacera'nın ailelerin çocukları için harika aktiviteler keşfetmelerine yardımcı olma misyonunu öğrenin. Ekibimizle tanışın ve bizi neyin motive ettiğini keşfedin."
         canonical="/about"
       />
 
@@ -67,11 +67,11 @@ const About = () => {
       <section className="bg-gradient-to-b from-sunshine/20 to-background section-padding py-16 md:py-24">
         <div className="container-width max-w-4xl text-center">
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-            Helping Families Discover{" "}
-            <span className="text-primary">Amazing</span> Experiences
+            Ailelerin{" "}
+            <span className="text-primary">Harika</span> Deneyimler Keşfetmesine Yardımcı Oluyoruz
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            We're on a mission to connect children with activities that spark joy, build skills, and create lasting memories.
+            Çocukları mutluluk veren, beceri geliştiren ve kalıcı anılar yaratan aktivitelerle buluşturma misyonundayız.
           </p>
         </div>
       </section>
@@ -82,25 +82,25 @@ const About = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="font-display text-3xl font-bold text-foreground mb-6">
-                Our Story
+                Hikayemiz
               </h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  KidVenture was born from a simple frustration: finding quality activities for kids shouldn't be so hard. As parents ourselves, we spent countless hours researching programs, reading reviews, and calling providers just to book a single class.
+                  ÇocukMacera, basit bir hayal kırıklığından doğdu: çocuklar için kaliteli aktiviteler bulmak bu kadar zor olmamalı. Kendimiz de ebeveyn olarak, tek bir derse kayıt olmak için bile saatlerce araştırma yapıp, yorumları okuyup, sağlayıcıları aradık.
                 </p>
                 <p>
-                  In 2022, we set out to create a better way. We envisioned a platform where parents could easily discover, compare, and book activities that match their children's interests and their family's schedule.
+                  2022'de daha iyi bir yol yaratmak için yola çıktık. Ebeveynlerin çocuklarının ilgi alanlarına ve ailelerinin programına uygun aktiviteleri kolayca keşfedebileceği, karşılaştırabileceği ve rezervasyon yapabileceği bir platform hayal ettik.
                 </p>
                 <p>
-                  Today, KidVenture connects thousands of families with hundreds of verified activity providers across the country. From art classes to sports leagues, music lessons to coding camps, we're making it easier than ever for children to explore their passions.
+                  Bugün, ÇocukMacera ülke genelinde binlerce aileyi yüzlerce doğrulanmış aktivite sağlayıcısıyla buluşturuyor. Sanat derslerinden spor ligelerine, müzik eğitiminden kodlama kamplarına kadar, çocukların tutkularını keşfetmelerini her zamankinden daha kolay hale getiriyoruz.
                 </p>
               </div>
             </div>
             <div className="bg-gradient-to-br from-coral-light/30 to-teal-light/30 rounded-3xl aspect-square flex items-center justify-center">
               <div className="text-center">
                 <span className="text-8xl mb-4 block">👨‍👩‍👧‍👦</span>
-                <p className="font-display font-bold text-2xl text-foreground">Founded by Parents</p>
-                <p className="text-muted-foreground">For Parents</p>
+                <p className="font-display font-bold text-2xl text-foreground">Ebeveynler Tarafından Kuruldu</p>
+                <p className="text-muted-foreground">Ebeveynler İçin</p>
               </div>
             </div>
           </div>
@@ -112,10 +112,10 @@ const About = () => {
         <div className="container-width">
           <div className="text-center mb-12">
             <h2 className="font-display text-3xl font-bold text-foreground mb-4">
-              Our Values
+              Değerlerimiz
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              The principles that guide everything we do
+              Yaptığımız her şeye rehberlik eden ilkeler
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -144,10 +144,10 @@ const About = () => {
         <div className="container-width">
           <div className="text-center mb-12">
             <h2 className="font-display text-3xl font-bold text-foreground mb-4">
-              Meet Our Team
+              Ekibimizle Tanışın
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              The passionate people behind KidVenture
+              ÇocukMacera'nın arkasındaki tutkulu insanlar
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -180,17 +180,17 @@ const About = () => {
       <section className="section-padding bg-gradient-to-br from-primary to-coral-dark">
         <div className="container-width max-w-3xl text-center">
           <h2 className="font-display text-3xl font-bold text-primary-foreground mb-6">
-            Our Mission
+            Misyonumuz
           </h2>
           <p className="text-xl text-primary-foreground/90 mb-8">
-            "To empower every family to discover activities that help their children learn, grow, and create joyful memories—making the journey of exploration as easy as it should be."
+            "Her aileyi, çocuklarının öğrenmesine, büyümesine ve neşeli anılar yaratmasına yardımcı olan aktiviteleri keşfetmeleri için güçlendirmek — keşif yolculuğunu olması gerektiği kadar kolay hale getirmek."
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="heroOutline" size="lg" asChild>
-              <Link to="/activities">Explore Activities</Link>
+              <Link to="/activities">Aktiviteleri Keşfet</Link>
             </Button>
             <Button variant="heroOutline" size="lg" asChild>
-              <Link to="/providers">Partner With Us</Link>
+              <Link to="/providers">Bizimle Ortak Olun</Link>
             </Button>
           </div>
         </div>

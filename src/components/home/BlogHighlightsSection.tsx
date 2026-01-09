@@ -6,33 +6,33 @@ const blogPosts = [
   {
     id: 1,
     slug: "benefits-of-extracurricular-activities",
-    title: "10 Benefits of Extracurricular Activities for Children",
-    excerpt: "Discover how extracurricular activities can boost your child's confidence, social skills, and academic performance.",
-    category: "Parenting Tips",
-    author: "Dr. Emily Chen",
-    readTime: "5 min read",
+    title: "Çocuklar İçin Okul Dışı Aktivitelerin 10 Faydası",
+    excerpt: "Okul dışı aktivitelerin çocuğunuzun özgüvenini, sosyal becerilerini ve akademik performansını nasıl artırabileceğini keşfedin.",
+    category: "Ebeveyn İpuçları",
+    author: "Dr. Elif Demir",
+    readTime: "5 dk okuma",
     date: "2024-01-15",
     image: "🎯",
   },
   {
     id: 2,
     slug: "choosing-right-sport-for-your-child",
-    title: "How to Choose the Right Sport for Your Child",
-    excerpt: "A comprehensive guide to matching your child's interests and abilities with the perfect sport.",
-    category: "Sports",
-    author: "Coach Mike Johnson",
-    readTime: "7 min read",
+    title: "Çocuğunuz İçin Doğru Sporu Nasıl Seçersiniz?",
+    excerpt: "Çocuğunuzun ilgi alanlarını ve yeteneklerini mükemmel sporla eşleştirmek için kapsamlı bir rehber.",
+    category: "Spor",
+    author: "Antrenör Ahmet Yılmaz",
+    readTime: "7 dk okuma",
     date: "2024-01-10",
     image: "⚽",
   },
   {
     id: 3,
     slug: "stem-activities-at-home",
-    title: "Fun STEM Activities You Can Do at Home",
-    excerpt: "Easy and engaging science experiments and coding activities that spark curiosity.",
+    title: "Evde Yapabileceğiniz Eğlenceli STEM Aktiviteleri",
+    excerpt: "Merak uyandıran kolay ve ilgi çekici bilim deneyleri ve kodlama aktiviteleri.",
     category: "STEM",
-    author: "Sarah Williams",
-    readTime: "6 min read",
+    author: "Selin Kaya",
+    readTime: "6 dk okuma",
     date: "2024-01-05",
     image: "🔬",
   },
@@ -45,15 +45,15 @@ const BlogHighlightsSection = () => {
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-12">
           <div>
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-2">
-              From Our Blog
+              Blogumuzdan
             </h2>
             <p className="text-muted-foreground">
-              Tips, guides, and insights for parents
+              Ebeveynler için ipuçları, rehberler ve içgörüler
             </p>
           </div>
           <Button variant="tealOutline" asChild>
             <Link to="/blog">
-              View All Posts
+              Tüm Yazıları Gör
               <ArrowRight size={18} />
             </Link>
           </Button>
